@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Todo } from '../../models/todo';
 
 @Component({
@@ -9,4 +9,11 @@ import { Todo } from '../../models/todo';
 export class TodoItemComponent {
   @Input()
   todo?: Todo;
+
+  @Output()
+  onRichiestaCompletamento = new EventEmitter<Todo>(); // creazione dell'allarme
+
+  richiediCompletamento() {
+    this.onRichiestaCompletamento.emit(this.todo); // attivazione dell'allarme
+  }
 }

@@ -1,6 +1,10 @@
 <div *ngIf="todo" class="d-flex justify-content-between">
   {{ todo.text }}
-  <button type="button" class="btn btn-success">
+  <button
+    type="button"
+    class="btn btn-success"
+    (click)="richiediCompletamento()"
+  >
     <i class="bi bi-check"></i>
   </button>
 </div>
