@@ -11,9 +11,9 @@ export class TodoItemComponent {
   todo?: Todo;
 
   @Output()
-  onRichiestaCompletamento = new EventEmitter<Todo>(); // creazione dell'allarme
+  onRichiestaCompletamento = new EventEmitter<number>(); // creazione dell'allarme
 
   richiediCompletamento() {
-    this.onRichiestaCompletamento.emit(this.todo); // attivazione dell'allarme
+    this.onRichiestaCompletamento.emit(this.todo!.id); // attivazione dell'allarme
   }
 }

@@ -1,6 +1,9 @@
 <div *ngIf="todo" class="d-flex justify-content-between">
-  {{ todo.text }}
+  <span [ngClass]="{ 'text-decoration-line-through': todo.completed }">{{
+    todo.text
+  }}</span>
   <button
+    *ngIf="!todo.completed"
     type="button"
     class="btn btn-success"
     (click)="richiediCompletamento()"

@@ -5,12 +5,23 @@ import { TODOS } from '../../data/todos';
 @Component({
   selector: 'app-todo-list',
   templateUrl: './todo-list.component.html',
-  styleUrl: './todo-list.component.css'
+  styleUrl: './todo-list.component.css',
 })
 export class TodoListComponent {
   todos: Todo[] = TODOS;
 
-  completa(todo: Todo) {
-    console.log("Richiesta eliminazione:", todo);
+  completa(id: number) {
+    console.log('Richiesta eliminazione id:', id);
+
+    const todo = this.todos.find(t => t.id == id);
+
+    if (todo) {
+      const i = this.todos.indexOf(todo);
+      this.todos[i].completed = true;
+    }
+  }
+
+  getDaCompletare() {
+    return this.todos.filter(t => !t.completed).length;
   }
 }
